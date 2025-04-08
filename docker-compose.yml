@@ -1,0 +1,84 @@
+version: '3.8'
+
+services:
+
+
+
+  app:
+    build: .
+    container_name: farm_app
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - mysql
+    networks:
+      - farm-network
+
+  mysql:
+    image: mysql:8.0
+    container_name: farm_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d
+    networks:
+      - farm-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: farm_phpmyadmin
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - "8080:80"
+    networks:
+      - farm-network
+
+  emqx:
+    image: emqx/emqx:5.6.1
+    container_name: farm_emqx
+    ports:
+      - "1883:1883"     # MQTT
+      - "18083:18083"   # Dashboard
+    volumes:
+      - ./emqx_data:/opt/emqx/data
+    environment:
+      - EMQX_DASHBOARD__DEFAULT_USERNAME=admin
+      - EMQX_DASHBOARD__DEFAULT_PASSWORD=public
+      - EMQX_ZONES__DEFAULT__MQTT_MAX_PAYLOAD_SIZE=10MB
+      - EMQX_LISTENERS__TCP__DEFAULT__MAX_CONNECTIONS=500000
+    networks:
+      - farm-network
+
+  nodered:
+    image: nodered/node-red
+    container_name: farm_nodered
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./node-red/data:/data
+    depends_on:
+      - emqx
+      - mysql
+    networks:
+      - farm-network
+
+volumes:
+  mysql-data:
+
+networks:
+  farm-network:
+    driver: bridge

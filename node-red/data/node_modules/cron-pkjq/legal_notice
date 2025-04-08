@@ -1,0 +1,25 @@
+This software uses:
+
+    ===
+    * cron-parser ( https://github.com/harrisiirak/cron-parser )
+    Licensed under the MIT License (MIT). Copyright (c) 2014-2016 Harri Siirak
+    ===
+    
+    
+    ===
+    * long-timeout ( https://github.com/tellnes/long-timeout )
+    Licensed under the MIT License (MIT). Copyright (c) Christian Tellnes
+    ===
+
+
+For tests uses:
+
+    ===
+    * mocha ( https://github.com/mochajs/mocha )
+    Licensed under the MIT License (MIT). Copyright (c) 2011-2018 JS Foundation and contributors
+    ===
+
+    ===
+    * sinon ( https://github.com/sinonjs/sinon )
+    Licensed under the BSD License. Copyright (c) 2010-2017, Christian Johansen
+    ===

@@ -1,0 +1,46 @@
+{
+    "name": "mushroom-backend",
+    "version": "1.0.0",
+    "description": "Backend service for mushroom farm management system",
+    "type": "module",
+    "main": "server.js",
+    "scripts": {
+      "start": "node src/server.js",
+      "dev": "nodemon src/server.js",
+      "prisma:generate": "prisma generate",
+      "prisma:migrate": "prisma migrate dev",
+      "prisma:studio": "prisma studio",
+      "prisma:reset": "prisma migrate reset",
+      "docker:build": "docker-compose build",
+      "docker:up": "docker-compose up",
+      "docker:down": "docker-compose down",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+      "mushroom",
+      "farm",
+      "prisma",
+      "express"
+    ],
+    "author": "Your Name <your.email@example.com>",
+    "license": "ISC",
+    "dependencies": {
+      "@prisma/client": "^6.4.1",
+      "bcryptjs": "^3.0.2",
+      "body-parser": "^1.20.3",
+      "cors": "^2.8.5",
+      "dotenv": "^16.4.7",
+      "express": "^4.21.2",
+      "jsonwebtoken": "^9.0.2",
+      "mysql2": "^3.12.0",
+      "uuid": "^11.1.0"
+    },
+    "devDependencies": {
+      "nodemon": "^3.1.9",
+      "prisma": "^6.4.1"
+    },
+    "engines": {
+      "node": ">=18.0.0",
+      "npm": ">=9.0.0"
+    }
+  }

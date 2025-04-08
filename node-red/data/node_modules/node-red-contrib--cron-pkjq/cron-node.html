@@ -1,0 +1,79 @@
+<script type="text/javascript">
+    RED.nodes.registerType('cron', {
+        category: "input",
+        icon: "timer.png",
+        color: "#a6bbcf",
+        outputs: 1,
+        defaults: {
+            name: { value: "" },
+            cronExpression: { value: "* * * * *", required: true },
+            fireAtStartup: { value: false },
+        },
+
+        label: function() {
+            return this.name || "cron: " + this.cronExpression
+        },
+    });
+</script>
+
+<script type="text/x-red" data-template-name="cron">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <br>
+
+	<div class="form-row">
+        <label for="node-input-cronExpression"><i class="fa fa-clock-o"></i> Cron expression</label>
+        <input type="text" id="node-input-cronExpression" placeholder="[s] m h Day Month Weak">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-fireAtStartup">&nbsp;</label>
+        <input type="checkbox" id="node-input-fireAtStartup" style="display:inline-block; width:15px; vertical-align:baseline;">
+        <span> Force fire once at startup</span>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="cron">
+    <p>Cron</p>
+
+    <p style="padding-top:10px"><b>Settings</b>:</p>
+    <ul>
+        <li><code>second</code> [0 - 59] <i>optional</i></li>
+        <li><code>minute</code> [0 - 59]</li>
+        <li><code>hour</code> [0 - 23]</li>
+        <li><code>day of month</code> [1 - 31]</li>
+        <li><code>month</code> [1 - 12]</li>
+            <small>
+                <div style="margin-left:15px">
+                    <i>
+                        <div>jan, feb, mar</div>
+                        <div>apr, may, jun</div>
+                        <div>jul, aug, sep</div>
+                        <div>oct, nov, dec</div>
+                    </i>
+                </div>
+            </small>
+        <li><code>day of week</code> [0 - 7] (0 and 7 is Sun)</li>
+            <small>
+                <div style="margin-left:15px">
+                    <i><font color="firebrick">sun</font>, mon, tue, wed, thu, fri, <font color="firebrick">sat, sun</font></i>
+                </div>
+            </small>
+    </ul>
+    <br>
+    <span>Use <a href='https://crontab.guru'>crontab.guru</a> to decode cron syntaxis.</span>
+    <br>
+    <small>Supports mixed use of ranges and range increments (L, W and # characters are not supported currently).</small>
+    <br>
+    <br>
+
+    <p style="padding-top:10px"><b>Output</b>:</p>
+    <ul>
+        <li><code>msg.payload</code> - is timestamp from execution.</li>
+        <li><code>msg.firedAtStartup</code> - flag is exist and set when event generated at startup. (if it's used).</li>
+    </ul>
+
+    <footer style="padding-top:20px;"><small>Based on <a href='https://www.npmjs.com/package/cron-pkjq'>cron-pkjq</a>.</small></footer>
+</script>

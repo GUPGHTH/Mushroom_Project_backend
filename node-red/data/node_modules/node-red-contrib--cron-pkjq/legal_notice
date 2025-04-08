@@ -1,0 +1,6 @@
+This software uses:
+
+    ===
+    * cron-pkjq ( https://github.com/pkjq/js--cron )
+    Licensed under MIT License. Copyright (c) 2018 pkjq
+    ===

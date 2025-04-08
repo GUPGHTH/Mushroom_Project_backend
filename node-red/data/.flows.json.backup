@@ -1,0 +1,1927 @@
+[
+    {
+        "id": "10f0e6ed6464fcaa",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a1b2c3d4.56789",
+        "type": "tab",
+        "label": "MQTT Capture Loop",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "f114013cefb819ab",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "broker_id",
+        "type": "mqtt-broker",
+        "name": "MQTT Broker",
+        "broker": "emqx",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "b7806c5f7af91827",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "7d995038ae19c611",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "472ffba8e3af128b",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "b7806c5f7af91827",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "16e04ea512447595",
+        "type": "MySQLdatabase",
+        "name": "main",
+        "host": "farm_mysql",
+        "port": "3306",
+        "db": "mydb",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "48caf99ddf286316",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "farm_mysql",
+        "port": "3306",
+        "db": "data_train",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "a1a1a1a1.1111a8",
+        "type": "mqtt in",
+        "z": "10f0e6ed6464fcaa",
+        "name": "Receive Image",
+        "topic": "/send/img/+",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "broker_id",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 460,
+        "y": 300,
+        "wires": [
+            [
+                "b2b2b2b2.2222b8"
+            ]
+        ]
+    },
+    {
+        "id": "b2b2b2b2.2222b8",
+        "type": "function",
+        "z": "10f0e6ed6464fcaa",
+        "name": "Process Image",
+        "func": "// Store the image data\nvar deviceId = msg.topic.split('/')[3];\nmsg.payload = {\n    deviceid: deviceId,\n    img: msg.payload.img,\n    timestamp: new Date().toISOString()\n};\n\n// Optionally save to context or global\n// context.set('lastImage_' + deviceId, msg.payload);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c3c3c3c3.3333c8",
+        "type": "debug",
+        "z": "10f0e6ed6464fcaa",
+        "name": "Debug Image",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "e5e5e5e5.5555e8",
+        "type": "inject",
+        "z": "10f0e6ed6464fcaa",
+        "name": "Capture Image",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "/capture/12",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 240,
+        "wires": [
+            [
+                "f6f6f6f6.6666f8"
+            ]
+        ]
+    },
+    {
+        "id": "f6f6f6f6.6666f8",
+        "type": "mqtt out",
+        "z": "10f0e6ed6464fcaa",
+        "name": "Publish Capture Command",
+        "topic": "",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "broker_id",
+        "x": 520,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "8de0968f8fac1a61",
+        "type": "mqtt in",
+        "z": "10f0e6ed6464fcaa",
+        "name": "",
+        "topic": "/send/img",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "broker_id",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 420,
+        "wires": [
+            [
+                "6bc06bf999638283",
+                "d796d177b4a73839"
+            ]
+        ]
+    },
+    {
+        "id": "a1",
+        "type": "mqtt in",
+        "z": "10f0e6ed6464fcaa",
+        "name": "",
+        "topic": "/send/img/chunk",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "broker_id",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 400,
+        "y": 560,
+        "wires": [
+            [
+                "a2"
+            ]
+        ]
+    },
+    {
+        "id": "a2",
+        "type": "function",
+        "z": "10f0e6ed6464fcaa",
+        "name": "Reassemble Chunks",
+        "func": "// Initialize buffer if first chunk\nif(!context.buffer) context.buffer = {};\n\n// Store chunk\nconst chunk = msg.payload;\nif(!context.buffer[chunk.id]) {\n    context.buffer[chunk.id] = {\n        parts: [],\n        expected: 0,\n        received: 0\n    };\n}\n\ncontext.buffer[chunk.id].parts[chunk.seq] = chunk.data;\ncontext.buffer[chunk.id].received++;\n\n// Check if all chunks received\nif(context.buffer[chunk.id].received === context.buffer[chunk.id].expected) {\n    // Combine and output\n    const fullImage = \"data:image/jpeg;base64,\" + \n        context.buffer[chunk.id].parts.join('');\n    \n    delete context.buffer[chunk.id];\n    \n    return {\n        payload: {\n            deviceid: chunk.id,\n            img: fullImage\n        }\n    };\n}\n\nreturn null;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6bc06bf999638283",
+        "type": "ui_template",
+        "z": "10f0e6ed6464fcaa",
+        "group": "472ffba8e3af128b",
+        "name": "",
+        "order": 1,
+        "width": 6,
+        "height": 7,
+        "format": "<div style=\"text-align:center;\">\n    <img src=\"data:image/png;base64,{{msg.payload.img}}\" style=\"max-width:100%;\"/>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 520,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d796d177b4a73839",
+        "type": "ui_text",
+        "z": "10f0e6ed6464fcaa",
+        "group": "472ffba8e3af128b",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload.img}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 470,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "db-query",
+        "type": "inject",
+        "z": "10f0e6ed6464fcaa",
+        "name": "Trigger Query",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "23 11 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "SELECT `device_id` FROM `device` WHERE `status` = \"active\"",
+        "payload": "SELECT `device_id` FROM `device` WHERE `status` = \"active\"",
+        "payloadType": "str",
+        "x": 260,
+        "y": 660,
+        "wires": [
+            [
+                "f05b7862f499d940"
+            ]
+        ]
+    },
+    {
+        "id": "process-results",
+        "type": "function",
+        "z": "10f0e6ed6464fcaa",
+        "name": "Process Results",
+        "func": "// Process each row from SQL results\nconst results = msg.payload;\nconst messages = [];\n\nresults.forEach(row => {\n    // Create a new message for each row\n    const newMsg = {\n        topic: `/capture/${row.device_id}`,  // Dynamic topic\n        payload: row.value           // Payload from SQL\n    };\n    messages.push(newMsg);\n});\n\n// Return array of messages\n\nmsg.payload = messages;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 660,
+        "wires": [
+            [
+                "send-mqtt"
+            ]
+        ]
+    },
+    {
+        "id": "send-mqtt",
+        "type": "function",
+        "z": "10f0e6ed6464fcaa",
+        "name": "Send MQTT Messages",
+        "func": "// For each message in the array, send to MQTT\nconst messages = msg.payload;\n\nmessages.forEach(mqttMsg => {\n    node.send({\n        topic: mqttMsg.topic,\n        payload: mqttMsg.payload\n    });\n});\n\n// Don't pass through original message\nreturn null;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 660,
+        "wires": [
+            [
+                "a39d7b4a3bf01c1a"
+            ]
+        ]
+    },
+    {
+        "id": "a39d7b4a3bf01c1a",
+        "type": "mqtt out",
+        "z": "10f0e6ed6464fcaa",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "broker_id",
+        "x": 1030,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "d45ed8c339709aec",
+        "type": "cron",
+        "z": "10f0e6ed6464fcaa",
+        "name": "",
+        "cronExpression": "49 4 * * *",
+        "fireAtStartup": true,
+        "x": 110,
+        "y": 800,
+        "wires": [
+            [
+                "f05b7862f499d940"
+            ]
+        ]
+    },
+    {
+        "id": "f05b7862f499d940",
+        "type": "change",
+        "z": "10f0e6ed6464fcaa",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "40 4",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "SELECT `device_id` FROM `device` WHERE `status` = \"active\"",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fe29c6fa477b9357",
+        "type": "mysql",
+        "z": "10f0e6ed6464fcaa",
+        "mydb": "16e04ea512447595",
+        "name": "",
+        "x": 510,
+        "y": 780,
+        "wires": [
+            [
+                "process-results"
+            ]
+        ]
+    },
+    {
+        "id": "228ba6c59eb0e92f",
+        "type": "ui_button",
+        "z": "10f0e6ed6464fcaa",
+        "name": "",
+        "group": "472ffba8e3af128b",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "clear",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 270,
+        "y": 500,
+        "wires": [
+            [
+                "6bc06bf999638283"
+            ]
+        ]
+    },
+    {
+        "id": "inject1",
+        "type": "inject",
+        "z": "a1b2c3d4.56789",
+        "name": "start",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "function1"
+            ]
+        ]
+    },
+    {
+        "id": "function1",
+        "type": "function",
+        "z": "a1b2c3d4.56789",
+        "name": "Initialize Counter",
+        "func": "// Initialize counter and device ID\nmsg.counter = 0;\nmsg.maxCount = 5;\nmsg.deviceId = \"your_device_id_here\"; // Replace with actual device ID or get it dynamically\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 100,
+        "wires": [
+            [
+                "mqtt-out"
+            ]
+        ]
+    },
+    {
+        "id": "mqtt-out",
+        "type": "mqtt out",
+        "z": "a1b2c3d4.56789",
+        "name": "Send Capture Command",
+        "topic": "/capture/{{deviceId}}",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "broker_id",
+        "x": 570,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "mqtt-in",
+        "type": "mqtt in",
+        "z": "a1b2c3d4.56789",
+        "name": "Listen for Image",
+        "topic": "/send/img",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "broker_id",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "function2"
+            ]
+        ]
+    },
+    {
+        "id": "function2",
+        "type": "function",
+        "z": "a1b2c3d4.56789",
+        "name": "Check Counter",
+        "func": "// Increment counter\nmsg.counter = msg.counter || 0;\nmsg.counter++;\n\n// If we've reached max count, stop\nif (msg.counter >= msg.maxCount) {\n    node.status({fill:\"green\",shape:\"dot\",text:\"Completed \"+msg.counter+\" captures\"});\n    return null;\n}\n\n// Otherwise prepare for next capture\nmsg.topic = \"/capture/\" + (msg.deviceId || \"your_device_id_here\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 200,
+        "wires": [
+            [
+                "delay1"
+            ]
+        ]
+    },
+    {
+        "id": "delay1",
+        "type": "delay",
+        "z": "a1b2c3d4.56789",
+        "name": "Short Delay",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 550,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "initDevices",
+        "type": "function",
+        "z": "a1b2c3d4.56789",
+        "name": "Initialize Device Loop",
+        "func": "if (!msg.payload || msg.payload.length === 0) {\n    node.error(\"No active devices\", msg);\n    return null;\n}\nflow.set(\"devices\", msg.payload);\nflow.set(\"currentIndex\", 0);\nflow.set(\"loopCount\", 0);\nreturn { ...msg, deviceId: msg.payload[0].device_id };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "deviceLoop",
+        "type": "function",
+        "z": "a1b2c3d4.56789",
+        "name": "Device/Loop Counter",
+        "func": "const devices = flow.get(\"devices\");\nlet index = flow.get(\"currentIndex\");\nlet loopCount = flow.get(\"loopCount\");\n\nif (index >= devices.length) {\n    flow.set(\"devices\", null);\n    return null;  // All devices done\n}\n\nmsg.deviceId = devices[index].device_id;\n\nif (loopCount < 5) {\n    flow.set(\"loopCount\", loopCount + 1);\n    return msg;  // Continue loop\n} else {\n    flow.set(\"currentIndex\", index + 1);\n    flow.set(\"loopCount\", 0);\n    if (index + 1 < devices.length) {\n        msg.deviceId = devices[index + 1].device_id;\n        return msg;  // Next device\n    } else {\n        return null;  // Done\n    }\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "161ce90f14e25bcd",
+        "type": "mysql",
+        "z": "a1b2c3d4.56789",
+        "mydb": "16e04ea512447595",
+        "name": "",
+        "x": 390,
+        "y": 460,
+        "wires": [
+            [
+                "0cb059daa7bb84fe",
+                "8e9b9b654593d683"
+            ]
+        ]
+    },
+    {
+        "id": "22408030e56b3eaa",
+        "type": "change",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "40 4",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "SELECT `device_id` FROM `device` WHERE `status` = \"active\"",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 240,
+        "y": 460,
+        "wires": [
+            [
+                "161ce90f14e25bcd"
+            ]
+        ]
+    },
+    {
+        "id": "eef583b40691e192",
+        "type": "inject",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 80,
+        "y": 460,
+        "wires": [
+            [
+                "22408030e56b3eaa"
+            ]
+        ]
+    },
+    {
+        "id": "64d66c313fd3cba9",
+        "type": "debug",
+        "z": "a1b2c3d4.56789",
+        "d": true,
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "adf5f5ac53a4e845",
+        "type": "function",
+        "z": "a1b2c3d4.56789",
+        "name": "function 1",
+        "func": "var mss = msg.payload\nvar result = [];\n\nmss.forEach(function(element) {\n    var tmp = { device_id: element.device_id, couter: 0, couter2: 0 };\n    result.push(tmp);\n});\n\nresult.push({ device_id: 12, couter: 0, couter2: 0 });\n\nflow.set(\"coutinglp\",result);\nmsg.payload = result;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 460,
+        "wires": [
+            [
+                "6fb0c122f0ab5ad3",
+                "f9276427c71725d4"
+            ]
+        ]
+    },
+    {
+        "id": "6fb0c122f0ab5ad3",
+        "type": "function",
+        "z": "a1b2c3d4.56789",
+        "name": "function 2",
+        "func": "msg.payload = flow.get(\"coutinglp\")\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 460,
+        "wires": [
+            [
+                "64d66c313fd3cba9"
+            ]
+        ]
+    },
+    {
+        "id": "f9276427c71725d4",
+        "type": "function",
+        "z": "a1b2c3d4.56789",
+        "name": "Process Results",
+        "func": "// Process each row from SQL results\nconst results = msg.payload;\nconst messages = [];\n\nresults.forEach(row => {\n    // Create a new message for each row\n    const newMsg = {\n        topic: `/capture/${row.device_id}`,  // Dynamic topic\n        payload: row.value           // Payload from SQL\n    };\n    messages.push(newMsg);\n});\n\n// Return array of messages\n\nmsg.payload = messages;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 500,
+        "wires": [
+            [
+                "8c69be63c5c46f61"
+            ]
+        ]
+    },
+    {
+        "id": "8c69be63c5c46f61",
+        "type": "function",
+        "z": "a1b2c3d4.56789",
+        "name": "Send MQTT Messages",
+        "func": "// For each message in the array, send to MQTT\nconst messages = msg.payload;\n\nmessages.forEach(mqttMsg => {\n    node.send({\n        topic: mqttMsg.topic,\n        payload: mqttMsg.payload\n    });\n});\n\n// Don't pass through original message\nreturn null;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1090,
+        "y": 500,
+        "wires": [
+            [
+                "4cf23024e22db4f5"
+            ]
+        ]
+    },
+    {
+        "id": "4cf23024e22db4f5",
+        "type": "mqtt out",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "broker_id",
+        "x": 1290,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "71d77c4a460734b8",
+        "type": "cron",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "cronExpression": "0 0 * * *",
+        "fireAtStartup": false,
+        "x": 70,
+        "y": 400,
+        "wires": [
+            [
+                "22408030e56b3eaa",
+                "e71131dbbc6f39b6"
+            ]
+        ]
+    },
+    {
+        "id": "e71131dbbc6f39b6",
+        "type": "change",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "time",
+                "pt": "flow",
+                "to": "day",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c27e59f897079d77",
+        "type": "cron",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "cronExpression": "0 10 * * *",
+        "fireAtStartup": false,
+        "x": 70,
+        "y": 540,
+        "wires": [
+            [
+                "6d2e68a3322846b4",
+                "22408030e56b3eaa"
+            ]
+        ]
+    },
+    {
+        "id": "6d2e68a3322846b4",
+        "type": "change",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "time",
+                "pt": "flow",
+                "to": "even",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "56edc50af0d9f1a9",
+        "type": "mqtt in",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "topic": "/send/img",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "broker_id",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 80,
+        "y": 640,
+        "wires": [
+            [
+                "eda7140b75f03bbd"
+            ]
+        ]
+    },
+    {
+        "id": "bc5fec4aecadfc69",
+        "type": "function",
+        "z": "a1b2c3d4.56789",
+        "name": "function 3",
+        "func": "var device_id = msg.payload[1][0].device_id;\nmsg.topic = \"/forward/\"+ device_id;\nmsg.payload = \"\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 700,
+        "wires": [
+            [
+                "94b4dadfdaed31cb"
+            ]
+        ]
+    },
+    {
+        "id": "33df443a51a3a695",
+        "type": "function",
+        "z": "a1b2c3d4.56789",
+        "name": "update_img",
+        "func": "\n\n\nvar sql = \"INSERT INTO `imagetable`(`img`, `device_id`) VALUES ('\" + msg.payload.img + \"','\" + msg.payload.deviceid + \"'); SELECT `device_id` FROM `imagetable` WHERE `device_id` = \" + msg.payload.deviceid  ;\nmsg.topic = sql; \nmsg.payload = '';\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 680,
+        "wires": [
+            [
+                "2d136bb77bd4f9e6"
+            ]
+        ]
+    },
+    {
+        "id": "2d136bb77bd4f9e6",
+        "type": "mysql",
+        "z": "a1b2c3d4.56789",
+        "mydb": "48caf99ddf286316",
+        "name": "",
+        "x": 660,
+        "y": 680,
+        "wires": [
+            [
+                "6b35009ad6a0d509"
+            ]
+        ]
+    },
+    {
+        "id": "d92f0136ee4a957c",
+        "type": "debug",
+        "z": "a1b2c3d4.56789",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload[1][0].device_id",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "eda7140b75f03bbd",
+        "type": "function",
+        "z": "a1b2c3d4.56789",
+        "name": "function 4",
+        "func": "var flow_data = flow.get(\"coutinglp\")\nvar device_id = msg.payload.deviceid;\n\nflow_data.forEach(function(element) {\n    if(element.device_id == device_id){\n\n        if (element.couter == 6 || element.couter >= 99) {\n            element.couter == 99;\n            msg.payload = \"drop\";\n        }else if(element.couter %2 == 0 && element.couter != 99){\n            element.couter ++ ;\n            msg.payload = \"drop\";\n        }\n        \n        else{\n            element.couter ++;\n        }\n    }\n});\nflow.set(\"coutinglp\",flow_data);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 640,
+        "wires": [
+            [
+                "71eeb2089d921390"
+            ]
+        ]
+    },
+    {
+        "id": "71eeb2089d921390",
+        "type": "switch",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "drop",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "drop",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 310,
+        "y": 740,
+        "wires": [
+            [],
+            [
+                "33df443a51a3a695",
+                "d14549c9ec1f9bbd"
+            ]
+        ]
+    },
+    {
+        "id": "94b4dadfdaed31cb",
+        "type": "mqtt out",
+        "z": "a1b2c3d4.56789",
+        "name": "move",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "broker_id",
+        "x": 1190,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "863a6d5e5567644b",
+        "type": "mqtt in",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "topic": "/finishmove/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "broker_id",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 800,
+        "wires": [
+            [
+                "ccd083cce4c6c32d"
+            ]
+        ]
+    },
+    {
+        "id": "ccd083cce4c6c32d",
+        "type": "function",
+        "z": "a1b2c3d4.56789",
+        "name": "function 5",
+        "func": "var flow_data = flow.get(\"coutinglp\")\nvar tmp = msg.topic.split(\"/\");\nvar device_id = tmp[2];\n\nflow_data.forEach(function(element) {\n    if(element.device_id == device_id){\n\n        if (element.couter2 == 6 || element.couter2 >= 99) {\n            element.couter2 == 99;\n            msg.payload = \"drop\";\n        }else if(element.couter2 %2 == 0 && element.couter2 != 99){\n            element.couter2 ++ ;\n            msg.payload = \"drop\";\n        }else{\n            element.couter2 ++;\n        }\n    }\n});\nflow.set(\"coutinglp\",flow_data);\nmsg.deviceid = device_id;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 800,
+        "wires": [
+            [
+                "c550072b85cd9687"
+            ]
+        ]
+    },
+    {
+        "id": "c550072b85cd9687",
+        "type": "switch",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "drop",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "drop",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 550,
+        "y": 800,
+        "wires": [
+            [],
+            [
+                "473201a68015f6fc"
+            ]
+        ]
+    },
+    {
+        "id": "6b5cf3412bb77b64",
+        "type": "inject",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "/finishmove/12",
+        "payload": "",
+        "payloadType": "date",
+        "x": 870,
+        "y": 780,
+        "wires": [
+            [
+                "b7e2046971a757fc"
+            ]
+        ]
+    },
+    {
+        "id": "b7e2046971a757fc",
+        "type": "mqtt out",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "topic": "",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "broker_id",
+        "x": 1070,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "de94d7c933399ffb",
+        "type": "mqtt in",
+        "z": "a1b2c3d4.56789",
+        "d": true,
+        "name": "",
+        "topic": "/forward/12",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "broker_id",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 880,
+        "y": 620,
+        "wires": [
+            [
+                "67177ad258ba535b"
+            ]
+        ]
+    },
+    {
+        "id": "67177ad258ba535b",
+        "type": "delay",
+        "z": "a1b2c3d4.56789",
+        "d": true,
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1040,
+        "y": 620,
+        "wires": [
+            [
+                "3e9343a6dc920131"
+            ]
+        ]
+    },
+    {
+        "id": "3e9343a6dc920131",
+        "type": "mqtt out",
+        "z": "a1b2c3d4.56789",
+        "d": true,
+        "name": "",
+        "topic": "/finishmove/12",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "broker_id",
+        "x": 1180,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "473201a68015f6fc",
+        "type": "function",
+        "z": "a1b2c3d4.56789",
+        "name": "function 6",
+        "func": "msg.topic = \"/capture/\" + msg.deviceid;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 860,
+        "wires": [
+            [
+                "03c117eae7a87f6a"
+            ]
+        ]
+    },
+    {
+        "id": "03c117eae7a87f6a",
+        "type": "mqtt out",
+        "z": "a1b2c3d4.56789",
+        "name": "repeat img",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "broker_id",
+        "x": 930,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "214d68519b0d7bad",
+        "type": "inject",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "2",
+        "payloadType": "str",
+        "x": 590,
+        "y": 400,
+        "wires": [
+            [
+                "015e8d0ae0886c2a"
+            ]
+        ]
+    },
+    {
+        "id": "015e8d0ae0886c2a",
+        "type": "mqtt out",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "topic": "/back/12",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "broker_id",
+        "x": 840,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "a7fcded09e3f67c6",
+        "type": "mqtt in",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "topic": "/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "broker_id",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 320,
+        "wires": [
+            [
+                "4802b005174604ef"
+            ]
+        ]
+    },
+    {
+        "id": "d14549c9ec1f9bbd",
+        "type": "debug",
+        "z": "a1b2c3d4.56789",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "6b35009ad6a0d509",
+        "type": "change",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "x",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 620,
+        "wires": [
+            [
+                "d92f0136ee4a957c",
+                "3cc4dac58868b1e1"
+            ]
+        ]
+    },
+    {
+        "id": "3cc4dac58868b1e1",
+        "type": "delay",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 840,
+        "y": 700,
+        "wires": [
+            [
+                "bc5fec4aecadfc69"
+            ]
+        ]
+    },
+    {
+        "id": "af7e2b7d41f296e6",
+        "type": "ui_button",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "group": "472ffba8e3af128b",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "start",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 70,
+        "y": 500,
+        "wires": [
+            [
+                "22408030e56b3eaa"
+            ]
+        ]
+    },
+    {
+        "id": "a103afbde24020fb",
+        "type": "ui_button",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "group": "472ffba8e3af128b",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "back",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "3",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 510,
+        "y": 340,
+        "wires": [
+            [
+                "015e8d0ae0886c2a"
+            ]
+        ]
+    },
+    {
+        "id": "c5aaaf1495c8762f",
+        "type": "ui_button",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "group": "472ffba8e3af128b",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "cap",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "x",
+        "topicType": "msg",
+        "x": 230,
+        "y": 1000,
+        "wires": [
+            [
+                "224a1e1eee5afcca"
+            ]
+        ]
+    },
+    {
+        "id": "0cb059daa7bb84fe",
+        "type": "mqtt out",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "topic": "/initcam/12",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "broker_id",
+        "x": 550,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "8e9b9b654593d683",
+        "type": "delay",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "6",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 460,
+        "wires": [
+            [
+                "adf5f5ac53a4e845"
+            ]
+        ]
+    },
+    {
+        "id": "4802b005174604ef",
+        "type": "debug",
+        "z": "a1b2c3d4.56789",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 280,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "d99def6d523c2427",
+        "type": "inject",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "224a1e1eee5afcca",
+        "type": "mqtt out",
+        "z": "a1b2c3d4.56789",
+        "name": "",
+        "topic": "/capture/12",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "broker_id",
+        "x": 490,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "process-data-node",
+        "type": "function",
+        "z": "f114013cefb819ab",
+        "name": "Prepare data",
+        "func": "// Process SQL data for CSV conversion\nmsg.payload = msg.payload.map(row => {\n    return {\n        date: row.day, // adjust to your date column name\n        img: row.img,\n        label : row.label\n    };\n});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 320,
+        "wires": [
+            [
+                "csv-converter"
+            ]
+        ]
+    },
+    {
+        "id": "csv-converter",
+        "type": "csv",
+        "z": "f114013cefb819ab",
+        "name": "Convert to CSV",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "all",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": false,
+        "include_null_values": false,
+        "x": 660,
+        "y": 320,
+        "wires": [
+            [
+                "output-node",
+                "3539c3762218949d",
+                "781f304379c33e0e"
+            ]
+        ]
+    },
+    {
+        "id": "output-node",
+        "type": "file",
+        "z": "f114013cefb819ab",
+        "name": "Save CSV",
+        "filename": "image_data.csv",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 890,
+        "y": 320,
+        "wires": [
+            [
+                "28ec9e147db409dc"
+            ]
+        ]
+    },
+    {
+        "id": "inject-node",
+        "type": "inject",
+        "z": "f114013cefb819ab",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "SELECT `img` , `day`,`label` FROM `imagetable` WHERE 1",
+        "x": 140,
+        "y": 320,
+        "wires": [
+            [
+                "fa86fe2394c2d297"
+            ]
+        ]
+    },
+    {
+        "id": "fa86fe2394c2d297",
+        "type": "mysql",
+        "z": "f114013cefb819ab",
+        "mydb": "48caf99ddf286316",
+        "name": "",
+        "x": 280,
+        "y": 260,
+        "wires": [
+            [
+                "process-data-node"
+            ]
+        ]
+    },
+    {
+        "id": "28ec9e147db409dc",
+        "type": "http response",
+        "z": "f114013cefb819ab",
+        "name": "Send CSV",
+        "statusCode": "",
+        "headers": {
+            "content-type": "text/csv",
+            "content-disposition": "attachment; filename=\"image_data.csv\""
+        },
+        "x": 1090,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "3539c3762218949d",
+        "type": "file",
+        "z": "f114013cefb819ab",
+        "name": "Save CSV",
+        "filename": "C:/Users/gupgh/Downloads/imagetable_data.csv",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 910,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d0cee41e6a7ea6eb",
+        "type": "http in",
+        "z": "f114013cefb819ab",
+        "name": "Static Files",
+        "url": "/data/*",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 400,
+        "wires": [
+            [
+                "f22ee9797856848d",
+                "dc9d925bc11cc212"
+            ]
+        ]
+    },
+    {
+        "id": "f22ee9797856848d",
+        "type": "http response",
+        "z": "f114013cefb819ab",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1030,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "781f304379c33e0e",
+        "type": "debug",
+        "z": "f114013cefb819ab",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "dc9d925bc11cc212",
+        "type": "change",
+        "z": "f114013cefb819ab",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "SELECT `img` , `day`,`label` FROM `imagetable` WHERE 1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 250,
+        "y": 360,
+        "wires": [
+            [
+                "fa86fe2394c2d297"
+            ]
+        ]
+    }
+]
