@@ -75,6 +75,18 @@ services:
       - mysql
     networks:
       - farm-network
+  line-bot:  # <-- NEW LINE MESSAGING API SERVICE
+    build: ./lineapi  # Path to your Line API Dockerfile
+    container_name: farm_line_bot
+    restart: unless-stopped
+    env_file: .env  # Share the same .env or use line-api/.env
+    ports:
+      - "3000:3000"  # Line webhook port
+    volumes:
+      - ./lineapi:/usr/src/app  # Mount line-api code
+      - /usr/src/app/node_modules
+    networks:
+      - farm-network  # Connect to same network
 
 volumes:
   mysql-data:
