@@ -1,7 +1,7 @@
 {
     "node-red": {
         "name": "node-red",
-        "version": "3.1.8",
+        "version": "4.0.9",
         "local": false,
         "user": false,
         "nodes": {
@@ -721,6 +721,237 @@
                 "user": false,
                 "module": "node-red-contrib--cron-pkjq",
                 "file": "/data/node_modules/node-red-contrib--cron-pkjq/cron-node.js"
+            }
+        }
+    },
+    "node-red-contrib-crypto-js": {
+        "name": "node-red-contrib-crypto-js",
+        "version": "0.1.1",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "encrypt": {
+                "name": "encrypt",
+                "types": [
+                    "encrypt"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-crypto-js",
+                "file": "/data/node_modules/node-red-contrib-crypto-js/cryptojs/encrypt.js"
+            },
+            "decrypt": {
+                "name": "decrypt",
+                "types": [
+                    "decrypt"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-crypto-js",
+                "file": "/data/node_modules/node-red-contrib-crypto-js/cryptojs/decrypt.js"
+            },
+            "hmac": {
+                "name": "hmac",
+                "types": [
+                    "hmac"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-crypto-js",
+                "file": "/data/node_modules/node-red-contrib-crypto-js/cryptojs/hmac.js"
+            },
+            "digest": {
+                "name": "digest",
+                "types": [
+                    "digest"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-crypto-js",
+                "file": "/data/node_modules/node-red-contrib-crypto-js/cryptojs/digest.js"
+            },
+            "encode": {
+                "name": "encode",
+                "types": [
+                    "encode"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-crypto-js",
+                "file": "/data/node_modules/node-red-contrib-crypto-js/cryptojs/encode.js"
+            },
+            "decode": {
+                "name": "decode",
+                "types": [
+                    "decode"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-crypto-js",
+                "file": "/data/node_modules/node-red-contrib-crypto-js/cryptojs/decode.js"
+            }
+        }
+    },
+    "node-red-contrib-jwt": {
+        "name": "node-red-contrib-jwt",
+        "version": "0.1.0",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "jwt": {
+                "name": "jwt",
+                "types": [
+                    "jwt sign",
+                    "jwt verify"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-jwt",
+                "file": "/data/node_modules/node-red-contrib-jwt/jwt.js"
+            }
+        }
+    },
+    "node-red-contrib-uuid": {
+        "name": "node-red-contrib-uuid",
+        "version": "0.0.4",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "UUID": {
+                "name": "UUID",
+                "types": [
+                    "uuid"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-uuid",
+                "file": "/data/node_modules/node-red-contrib-uuid/uuid/uuid.js"
+            }
+        }
+    },
+    "node-red-contrib-node-line-api": {
+        "name": "node-red-contrib-node-line-api",
+        "version": "0.8.10",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "node-line-notify": {
+                "name": "node-line-notify",
+                "types": [
+                    "node-line-notify"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-node-line-api",
+                "file": "/data/node_modules/node-red-contrib-node-line-api/nodes/node-line-notify/node-line-notify.js"
+            },
+            "node-line-bot-push-message": {
+                "name": "node-line-bot-push-message",
+                "types": [
+                    "node-line-bot-push-message"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-node-line-api",
+                "file": "/data/node_modules/node-red-contrib-node-line-api/nodes/node-line-bot-push-message/node-line-bot-push-message.js"
+            },
+            "node-line-bot-multicast-message": {
+                "name": "node-line-bot-multicast-message",
+                "types": [
+                    "node-line-bot-multicast-message"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-node-line-api",
+                "file": "/data/node_modules/node-red-contrib-node-line-api/nodes/node-line-bot-multicast-message/node-line-bot-multicast-message.js"
+            },
+            "node-line-bot-broadcast-message": {
+                "name": "node-line-bot-broadcast-message",
+                "types": [
+                    "node-line-bot-broadcast-message"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-node-line-api",
+                "file": "/data/node_modules/node-red-contrib-node-line-api/nodes/node-line-bot-broadcast-message/node-line-bot-broadcast-message.js"
+            },
+            "node-line-bot-reply-message": {
+                "name": "node-line-bot-reply-message",
+                "types": [
+                    "node-line-bot-reply-message"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-node-line-api",
+                "file": "/data/node_modules/node-red-contrib-node-line-api/nodes/node-line-bot-reply-message/node-line-bot-reply-message.js"
+            },
+            "node-line-bot-webhook": {
+                "name": "node-line-bot-webhook",
+                "types": [
+                    "node-line-bot-webhook"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-node-line-api",
+                "file": "/data/node_modules/node-red-contrib-node-line-api/nodes/node-line-bot-webhook/node-line-bot-webhook.js"
+            },
+            "line-messaging-api-config": {
+                "name": "line-messaging-api-config",
+                "types": [
+                    "line-messaging-api-config"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-node-line-api",
+                "file": "/data/node_modules/node-red-contrib-node-line-api/nodes/line-messaging-api-config/line-messaging-api-config.js"
+            },
+            "node-line-bot-reply-provider": {
+                "name": "node-line-bot-reply-provider",
+                "types": [
+                    "node-line-bot-replyToken-provider"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-node-line-api",
+                "file": "/data/node_modules/node-red-contrib-node-line-api/nodes/node-line-bot-replyToken-provider/node-line-bot-replyToken-provider.js"
+            },
+            "node-line-bot-quick-reply-item": {
+                "name": "node-line-bot-quick-reply-item",
+                "types": [
+                    "node-line-bot-quick-reply-item"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-node-line-api",
+                "file": "/data/node_modules/node-red-contrib-node-line-api/nodes/node-line-bot-quick-reply-item/node-line-bot-quick-reply-item.js"
+            },
+            "node-line-bot-quick-reply-collector": {
+                "name": "node-line-bot-quick-reply-collector",
+                "types": [
+                    "node-line-bot-quick-reply-collector"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-node-line-api",
+                "file": "/data/node_modules/node-red-contrib-node-line-api/nodes/node-line-bot-quick-reply-collector/node-line-bot-quick-reply-collector.js"
             }
         }
     }

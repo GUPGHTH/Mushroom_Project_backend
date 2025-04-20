@@ -1,0 +1,16 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@10.9.2
+2 info using node@v22.14.0
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/usr/src/node-red/.npmrc
+5 silly config load:file:/usr/local/etc/npmrc
+6 verbose title npm
+7 verbose argv
+8 verbose logfile logs-max:10 dir:/data/.npm/_logs/2025-04-15T13_11_19_741Z-
+9 verbose logfile /data/.npm/_logs/2025-04-15T13_11_19_741Z-debug-0.log
+10 verbose cwd /usr/src/node-red
+11 verbose os Linux 5.15.146.1-microsoft-standard-WSL2
+12 verbose node v22.14.0
+13 verbose npm  v10.9.2
+14 verbose exit 1
+15 verbose code 1

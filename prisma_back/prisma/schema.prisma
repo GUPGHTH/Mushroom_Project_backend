@@ -1,0 +1,111 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  user_id  Int    @id @default(autoincrement())
+  username String @unique(map: "User_username_key")
+  password String
+  uuid     String @unique(map: "User_uuid_key")
+
+  @@map("user")
+}
+
+model Farm {
+  farm_id          Int              @id @default(autoincrement())
+  farm_name        String
+  farm_type        String?
+  farm_description String?
+  farm_status      Boolean?         @default(true)
+  temperature      Float?
+  humidity         Float?
+  CultivationPot   CultivationPot[]
+  Device           Device[]
+  GrowingPot       GrowingPot[]
+
+  @@map("farm")
+}
+
+model Device {
+  device_id      Int              @id @default(autoincrement())
+  device_name    String
+  description    String?
+  status         String?          @default("inactive")
+  device_type    String?
+  farm_id        Int
+  CultivationPot CultivationPot[]
+  farm           Farm             @relation(fields: [farm_id], references: [farm_id], onUpdate: Restrict, map: "link_farm_id")
+  GrowingPot     GrowingPot[]
+
+  @@index([farm_id], map: "link_farm_id")
+  @@map("device")
+}
+
+model TypePot {
+  type_pot_id    Int              @id @default(autoincrement())
+  type_pot_name  String
+  description    String?
+  status         Boolean?         @default(true)
+  CultivationPot CultivationPot[]
+  GrowingPot     GrowingPot[]
+
+  @@map("typepot")
+}
+
+model CultivationPot {
+  cultivation_pot_id Int       @id @default(autoincrement())
+  type_pot_id        Int
+  index              Int?
+  farm_id            Int
+  device_id          Int
+  img_path           String?   @db.LongText
+  ai_result          String?
+  status             String?   @default("active")
+  pot_name           String?
+  age                Int       @default(1)
+  create_pot         DateTime? @default(dbgenerated("'1990-01-01'")) @db.Date
+  Device             Device    @relation(fields: [device_id], references: [device_id], onUpdate: Restrict, map: "CultivationPot_device_id_fkey")
+  Farm               Farm      @relation(fields: [farm_id], references: [farm_id], onUpdate: Restrict, map: "CultivationPot_farm_id_fkey")
+  TypePot            TypePot   @relation(fields: [type_pot_id], references: [type_pot_id], onDelete: Cascade, map: "CultivationPot_type_pot_id_fkey")
+
+  @@index([device_id], map: "CultivationPot_device_id_fkey")
+  @@index([farm_id], map: "CultivationPot_farm_id_fkey")
+  @@index([type_pot_id], map: "CultivationPot_type_pot_id_fkey")
+  @@map("cultivationpot")
+}
+
+model GrowingPot {
+  growing_pot_id Int       @id @default(autoincrement())
+  type_pot_id    Int
+  index          Int?
+  farm_id        Int
+  device_id      Int
+  img_path       String?   @db.LongText
+  ai_result      String?
+  status         String?   @default("active")
+  pot_name       String?
+  age            Int       @default(1)
+  create_pot     DateTime? @default(dbgenerated("'1990-01-01'")) @db.Date
+  Device         Device    @relation(fields: [device_id], references: [device_id], onUpdate: Restrict, map: "GrowingPot_device_id_fkey")
+  Farm           Farm      @relation(fields: [farm_id], references: [farm_id], onUpdate: Restrict, map: "GrowingPot_farm_id_fkey")
+  TypePot        TypePot   @relation(fields: [type_pot_id], references: [type_pot_id], onDelete: Cascade, map: "GrowingPot_type_pot_id_fkey")
+
+  @@index([device_id], map: "GrowingPot_device_id_fkey")
+  @@index([farm_id], map: "GrowingPot_farm_id_fkey")
+  @@index([type_pot_id], map: "GrowingPot_type_pot_id_fkey")
+  @@map("growingpot")
+}
+
+model LogTable {
+  log_id       Int      @id @default(autoincrement())
+  date_log     DateTime @default(dbgenerated("'1990-01-01'")) @db.Date
+  normal_pot   Int
+  unnormal_pot Int
+
+  @@map("log_table")
+}

@@ -5,14 +5,14 @@ services:
 
 
   app:
-    build: .
+    build: ./prisma_back
     container_name: farm_app
     restart: unless-stopped
     env_file: .env
     ports:
-      - "${APP_PORT}:${APP_PORT}"
+      - "5000:5000"
     volumes:
-      - .:/usr/src/app
+      - ./prisma_back:/usr/src/app
       - /usr/src/app/node_modules
     depends_on:
       - mysql
@@ -53,6 +53,7 @@ services:
     ports:
       - "1883:1883"     # MQTT
       - "18083:18083"   # Dashboard
+      - "8081:8081"
     volumes:
       - ./emqx_data:/opt/emqx/data
     environment:
@@ -64,7 +65,7 @@ services:
       - farm-network
 
   nodered:
-    image: nodered/node-red
+    image: nodered/node-red:latest-22
     container_name: farm_nodered
     ports:
       - "1880:1880"
@@ -87,6 +88,16 @@ services:
       - /usr/src/app/node_modules
     networks:
       - farm-network  # Connect to same network
+  # ai_api:
+  #   build: ./ai_api
+  #   container_name: farm_ai_api
+  #   restart: unless-stopped
+  #   ports:
+  #     - "8989:8989"
+  #   volumes:
+  #     - ./ai_api:/usr/src/app
+  #   networks:
+  #     - farm-network
 
 volumes:
   mysql-data:

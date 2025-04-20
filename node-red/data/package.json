@@ -6,6 +6,10 @@
     "dependencies": {
         "node-red-contrib--cron-pkjq": "~0.0.1",
         "node-red-contrib-bigtimer": "~2.8.6",
+        "node-red-contrib-crypto-js": "~0.1.1",
+        "node-red-contrib-jwt": "~0.1.0",
+        "node-red-contrib-node-line-api": "~0.8.10",
+        "node-red-contrib-uuid": "~0.0.4",
         "node-red-dashboard": "~3.6.5",
         "node-red-node-mysql": "~2.0.0"
     }
