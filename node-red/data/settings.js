@@ -560,9 +560,9 @@ module.exports = {
 }
 
 
-module.exports = {
-    functionGlobalContext: {
-        sharp: require('sharp'),       // Enable sharp
-        // Enable canvas (if needed)
-    }
-};
+// module.exports = {
+//     functionGlobalContext: {
+//         sharp: require('sharp'),       // Enable sharp
+//         // Enable canvas (if needed)
+//     }
+// };
